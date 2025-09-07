@@ -1,27 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Basic Landing Page</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>charity: water — Clean Water for Students to Change the World</title>
+  <meta name="description" content="A student‑focused charity: water campaign page that educates, inspires, and drives action to fund clean water projects." />
+  <style>
+    /* =========================
+       Beginner‑friendly CSS
+       Updated with your brand colors & fonts
+       ========================= */
+
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Lemon+Tuesday&display=swap');
+
+    :root {
+      /* Your Brand Palette */
+      --sky-blue: #92BBF8;
+      --blue: #3A74C2;
+      --denim: #39527B;
+      --black: #111111;
+      --white: #ffffff;
+      --gray-100: #f7f7f7;
+      --gray-300: #e6e6e6;
+      --gray-600: #6b6b6b;
+      --cta: var(--blue);
+      --cta-text: var(--white);
+      --maxw: 1100px;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    /* Base */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Lemon Tuesday', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.5;
+    }
+    h1, h2, h3 { font-family: 'Pacifico', cursive; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    .btn {
+      display: inline-block; padding: 14px 22px; border-radius: 999px; font-weight: 700;
+      background: var(--cta); color: var(--cta-text); transition: transform .1s ease, box-shadow .2s ease;
+      box-shadow: 0 6px 16px rgba(0,0,0,.12);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.18); }
+    .btn--ghost { background: transparent; border: 2px solid var(--blue); color: var(--blue); }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50; background: var(--white);
+      border-bottom: 1px solid var(--gray-300);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap: 16px; padding: 14px 0; }
+    .logo { display:flex; align-items:center; gap:10px; font-weight: 800; color: var(--blue); }
+    .logo-mark { width:28px; height:28px; background: var(--sky-blue); border-radius: 6px; display:grid; place-items:center; font-size:18px; }
+
+    /* Hero */
+    .hero {
+      display:grid; grid-template-columns: 1fr; gap: 24px; align-items:center;
+      padding: 42px 0 28px; background: var(--sky-blue);
+    }
+    .hero__text h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.1; margin: 8px 0 14px; color: var(--white); }
+    .hero__text p { font-size: clamp(16px, 2.5vw, 18px); color: var(--white); }
+    .hero__cta { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+    .hero__media {
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: #ddd;
+      aspect-ratio: 16/9;
+    }
+    .hero__media img { width:100%; height:100%; object-fit: cover; }
+
+    /* Story */
+    .section { padding: 48px 0; }
+    .section h2 { font-size: clamp(22px, 3.5vw, 32px); margin: 0 0 10px; color: var(--blue); }
+    .section p { max-width: 70ch; }
+
+    .card { background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+    .quote { border-left: 4px solid var(--blue); padding-left: 14px; font-style: italic; color: var(--denim); }
+
+    /* CTA band */
+    .cta-band { background: var(--denim); color: var(--white); border-radius: var(--radius); padding: 28px; display:grid; gap: 12px; }
+    .cta-band .btn { background: var(--sky-blue); color: var(--black); }
+
+    /* Responsive */
+    @media (min-width: 800px) {
+      .hero { grid-template-columns: 1.1fr .9fr; gap: 28px; padding: 64px 0 40px; }
+      .cta-band { grid-template-columns: 1.6fr 1fr; align-items: center; }
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Navbar -->
-  <nav>
-    <ul>
-      <li><a href="#">Logo</a></li>
-      <li><a href="#">Home</a></li>
-    </ul>
-  </nav>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top">
+        <span class="logo-mark">💧</span>
+        <span>charity: water — Campus</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#story">Our Story</a>
+        <a href="#impact">Impact</a>
+        <a href="#donate" class="btn">Donate</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <img src="https://images.pexels.com/photos/3820509/pexels-photo-3820509.jpeg" width="100" height="100" alt="a gray rabbit"> </img>
-    <h1>Welcome to a Landing Page</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-    <button>Buy our stuff</button>
+  <!-- Hero -->
+  <section class="hero container" id="top">
+    <div class="hero__text">
+      <h1>Bring clean water to communities — lead the change from your campus.</h1>
+      <p>Students are powerful changemakers. Together we can give families safe water, health, and hope.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#donate">Donate now</a>
+        <a class="btn btn--ghost" href="#story">Learn More</a>
+      </div>
+    </div>
+    <figure class="hero__media">
+      <img src="img/family.png" alt="Smiling family with access to clean water" />
+    </figure>
   </section>
 
+  <!-- Story -->
+  <section class="section container" id="story">
+    <div class="card">
+      <h2>Why clean water matters</h2>
+      <p>703 million people live without clean water. It affects health, education, and opportunity. With clean water, children can go to school, parents can work, and entire communities thrive.</p>
+      <img src="img/school.png" alt="Family smiling together after receiving access to water" />
+      <p class="quote">“Instead of walking for water, my daughter goes to school.”</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container" id="donate">
+    <div class="cta-band">
+      <div>
+        <h2>Your gift changes lives</h2>
+        <p>100% of donations fund clean water projects. Track the impact from start to finish.</p>
+      </div>
+      <div>
+        <a class="btn" href="#">Donate $40</a>
+        <a class="btn btn--ghost" href="#">Join Monthly</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> charity: water (student project). Built with HTML + CSS.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
